@@ -537,11 +537,13 @@ header {
   opacity: 0.98;
 }
 
-.certificate-grid {
+.certificate-grid,
+.documents-grid {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.certificate-card {
+.certificate-card,
+.documents-card {
   display: grid;
   gap: 1rem;
   padding: 1.6rem;
@@ -550,7 +552,8 @@ header {
   border: 1px solid rgba(148, 163, 184, 0.12);
 }
 
-.certificate-card__label {
+.certificate-card__label,
+.documents-card__label {
   display: block;
   width: 48px;
   height: 48px;
