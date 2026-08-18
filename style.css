@@ -255,10 +255,7 @@ header {
 }
 
 .section-heading__line {
-  width: 48px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--green), var(--green-soft));
-  border-radius: 999px;
+  display: none;
 }
 
 .section-heading h3 {
@@ -595,6 +592,124 @@ header {
 .certificate-card__text {
   margin: 0;
   color: var(--subtext);
+}
+
+.certificate-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.certificate-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.certificate-list img {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* icon sizing for cards */
+.card__icon svg,
+.contact-card__label svg,
+.certificate-card__label svg {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: block;
+  color: var(--green);
+}
+
+.contact-card__label {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.02);
+  color: var(--subtext);
+}
+
+/* Section separators and card accents for a professional look */
+section + section {
+  border-top: 1px solid rgba(255,255,255,0.03);
+  margin-top: 2.4rem;
+  padding-top: 2.4rem;
+}
+
+.certificate-card,
+.card,
+.documents-card,
+.contact-card__item {
+  border-left: 4px solid transparent;
+  transition: box-shadow 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.certificate-card:hover,
+.card:hover,
+.documents-card:hover,
+.contact-card__item:hover {
+  border-left-color: rgba(34,197,94,0.18);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  transform: translateY(-6px);
+}
+
+/* Make section headings stand out slightly */
+.section-heading > div h2 {
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  section + section {
+    margin-top: 1.6rem;
+    padding-top: 1.6rem;
+    border-top-width: 1px;
+  }
+  .certificate-card,
+  .card,
+  .documents-card,
+  .contact-card__item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* collapsed certificate grid: hide cards after the first three */
+.certificate-grid.collapsed > .certificate-card:nth-child(n+4) {
+  display: none;
+}
+
+.cert-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#cert-toggle {
+  padding: 0.7rem 1rem;
+}
+
+/* inner collapsing for grouped certificate lists */
+.certificate-list.collapsed > li:nth-child(n+2) {
+  display: none;
+}
+
+.cert-inner-controls {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cert-inner-toggle {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.95rem;
 }
 
 .contact-grid {
